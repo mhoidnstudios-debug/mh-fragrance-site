@@ -14,11 +14,7 @@
 
   body {
   font-family: Arial, sans-serif;
-  background-image: url('ocean-background.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background: #0a0a0a;
   color: white;
   line-height: 1.6;
 }
@@ -98,6 +94,26 @@
     .spacer {
       height: 30px;
     }
+    .hero {
+  height: 100vh;
+  background-image: url('Websiteoben.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.endless {
+  min-height: 200vh;
+  background-image: url('Websiteunten.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.section {
+  margin: 0;
+  padding: 60px 20px;
+}
 
     @media (max-width: 768px) {
 
@@ -142,31 +158,22 @@
 </head>
 <body>
 
-  <section class="section">
+  <section class="hero">
+  <div class="section">
     <div class="small">MH Fragrance</div>
     <h1>Spirit of the Ocean</h1>
-    <p>Salz. Duft. Präsenz. Feel it</p>
+    <p>Salz. Duft. Präsenz.</p>
     <a href="#produkt" class="btn">Jetzt probieren</a>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="produkt">
-    <div class="card">
-      <div class="image-placeholder"></div>
-      <h2>Spirit of the Ocean</h2>
-      <p>Struktur für dein Haar. Duft für deine Präsenz.</p>
-       <div class="price">19 €</div>
-      <a href="#" class="btn">Kaufen</a>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Keine Ablenkung</h2>
-    <p>Keine Navigation. Keine Reiter. Nur Scrollen, sehen und kaufen.</p>
-  </section>
-
-  <section class="section">
-    <a href="#" class="btn">Jetzt kaufen</a>
-  </section>
-
+<section class="endless" id="produkt">
+  <div class="section">
+    <h2>Herren Edition</h2>
+    <div class="price">19 €</div>
+    <a href="#" class="btn">Mit PayPal kaufen</a>
+  </div>
+</section>
+  
 </body>
 </html>
