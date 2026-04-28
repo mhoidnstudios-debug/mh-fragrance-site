@@ -109,17 +109,17 @@
 .video-section::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: -180px; /* WICHTIG – zieht sich ins Bild */
   left: 0;
   width: 100%;
-  height: 420px; /* viel länger = weicher */
+  height: 400px;
 
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.0.6) 0%,
-    rgba(0,0,0,0.5) 25%,
-    rgba(0,0,0,0.25) 55%,
-    rgba(0,0,0,0.08) 75%,
+    rgba(0,0,0,0.7) 0%,
+    rgba(0,0,0,0.45) 30%,
+    rgba(0,0,0,0.2) 60%,
+    rgba(0,0,0,0.05) 80%,
     rgba(0,0,0,0) 100%
   );
 
