@@ -95,11 +95,31 @@
       height: 30px;
     }
   .page {
+  position: relative;
   min-height: 100vh;
   background-image: url('websiteback.png');
   background-size: 450% auto;
   background-position: center top;
   background-repeat: no-repeat;
+}
+    .page::after {
+  content: "";
+  position: absolute;
+  bottom: -120px; /* zieht in Video rein */
+  left: 0;
+  width: 100%;
+  height: 300px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.4) 40%,
+    rgba(0,0,0,0.8) 70%,
+    #000000 100%
+  );
+
+  z-index: 3;
+  pointer-events: none;
 }
 
  
@@ -166,26 +186,7 @@
   filter: brightness(0.85);
 }
 
-/* Übergang von Bild → Video */
-.video-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 260px;
 
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,1) 0%,
-    rgba(0,0,0,0.8) 30%,
-    rgba(0,0,0,0.4) 60%,
-    rgba(0,0,0,0) 100%
-  );
-
-  z-index: 2;
-  pointer-events: none;
-}
 /* optional: dunkler Abschluss unten */
 .video-section::after {
   content: "";
