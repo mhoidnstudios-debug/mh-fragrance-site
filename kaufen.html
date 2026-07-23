@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#050505" />
+  <meta name="description" content="Spirit of the Ocean – ein mediterraner Duft, der erst in der Nähe beginnt." />
+  <title>Spirit of the Ocean – Herren Edition</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+      background: #050505;
+    }
+
+    body {
+      color: #f2efe8;
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+
+      padding:
+        max(74px, env(safe-area-inset-top))
+        max(24px, env(safe-area-inset-right))
+        max(56px, env(safe-area-inset-bottom))
+        max(24px, env(safe-area-inset-left));
+
+      background-color: #050505;
+      background-image:
+        radial-gradient(
+          circle at center,
+          rgba(0, 0, 0, 0.06) 0%,
+          rgba(0, 0, 0, 0.22) 46%,
+          rgba(0, 0, 0, 0.62) 100%
+        ),
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.14) 0%,
+          rgba(0, 0, 0, 0.28) 100%
+        ),
+        url("Marketingbackground.png");
+
+      background-size: cover, cover, cover;
+      background-position: center center, center center, center center;
+      background-repeat: no-repeat;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.12) 0%,
+        rgba(0, 0, 0, 0) 34%,
+        rgba(0, 0, 0, 0.18) 100%
+      );
+    }
+
+    .back-link {
+      position: absolute;
+      top: max(26px, env(safe-area-inset-top));
+      left: max(24px, env(safe-area-inset-left));
+      z-index: 3;
+      color: rgba(242, 239, 232, 0.60);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      transition: color 250ms ease, transform 250ms ease;
+    }
+
+    .back-link:hover {
+      color: #f2efe8;
+      transform: translateX(-2px);
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 760px;
+      text-align: center;
+    }
+
+    .brand {
+      margin-bottom: 36px;
+      color: rgba(242, 239, 232, 0.60);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 auto;
+      color: #f2efe8;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(46px, 7vw, 86px);
+      font-weight: 400;
+      line-height: 1.03;
+      letter-spacing: -0.035em;
+      text-shadow: 0 2px 26px rgba(0, 0, 0, 0.46);
+    }
+
+    .edition {
+      margin-top: 18px;
+      color: rgba(242, 239, 232, 0.60);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+    }
+
+    .statement {
+      max-width: 540px;
+      margin: 46px auto 0;
+      color: rgba(242, 239, 232, 0.95);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(20px, 2.4vw, 28px);
+      font-weight: 400;
+      line-height: 1.5;
+      text-shadow: 0 2px 22px rgba(0, 0, 0, 0.55);
+    }
+
+    .description {
+      max-width: 500px;
+      margin: 22px auto 0;
+      color: rgba(242, 239, 232, 0.72);
+      font-size: 15px;
+      line-height: 1.8;
+      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.58);
+    }
+
+    .button-wrap {
+      margin-top: 50px;
+    }
+
+    .try-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 220px;
+      min-height: 56px;
+      padding: 16px 36px;
+      border: 1px solid rgba(242, 239, 232, 0.94);
+      border-radius: 999px;
+      background: #f2efe8;
+      color: #090909;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      box-shadow: 0 12px 38px rgba(0, 0, 0, 0.30);
+      transition:
+        background-color 350ms ease,
+        color 350ms ease,
+        border-color 350ms ease,
+        transform 350ms ease,
+        box-shadow 350ms ease;
+    }
+
+    .try-button:hover {
+      background: rgba(5, 5, 5, 0.68);
+      color: #f2efe8;
+      border-color: rgba(242, 239, 232, 0.78);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.42);
+    }
+
+    .try-button:active {
+      transform: translateY(0);
+    }
+
+    .back-link:focus-visible,
+    .try-button:focus-visible {
+      outline: 2px solid #f2efe8;
+      outline-offset: 6px;
+    }
+
+    .quiet-line {
+      width: 34px;
+      height: 1px;
+      margin: 54px auto 0;
+      background: rgba(242, 239, 232, 0.26);
+    }
+
+    .closing {
+      margin-top: 20px;
+      color: rgba(242, 239, 232, 0.46);
+      font-size: 10px;
+      line-height: 1.7;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      .page {
+        padding:
+          max(78px, env(safe-area-inset-top))
+          max(20px, env(safe-area-inset-right))
+          max(48px, env(safe-area-inset-bottom))
+          max(20px, env(safe-area-inset-left));
+      }
+
+      .back-link {
+        top: max(22px, env(safe-area-inset-top));
+        left: max(20px, env(safe-area-inset-left));
+        font-size: 11px;
+      }
+
+      .brand {
+        margin-bottom: 30px;
+        font-size: 10px;
+        letter-spacing: 0.34em;
+      }
+
+      h1 {
+        font-size: clamp(42px, 12vw, 60px);
+        line-height: 1.04;
+      }
+
+      .edition {
+        margin-top: 16px;
+        font-size: 10px;
+        letter-spacing: 0.28em;
+      }
+
+      .statement {
+        margin-top: 38px;
+        font-size: 21px;
+        line-height: 1.48;
+      }
+
+      .description {
+        max-width: 410px;
+        margin-top: 20px;
+        font-size: 14px;
+        line-height: 1.75;
+      }
+
+      .button-wrap {
+        margin-top: 42px;
+      }
+
+      .try-button {
+        width: 100%;
+        max-width: 310px;
+      }
+
+      .quiet-line {
+        margin-top: 46px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      h1 {
+        font-size: 42px;
+      }
+
+      .statement {
+        font-size: 20px;
+      }
+
+      .description {
+        font-size: 13px;
+      }
+
+      .try-button {
+        max-width: 290px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <a href="index.html" class="back-link">Zurück</a>
+
+    <div class="content">
+      <div class="brand">MH Fragrance</div>
+
+      <h1>Spirit of the Ocean</h1>
+
+      <div class="edition">Herren Edition</div>
+
+      <p class="statement">
+        Ein mediterraner Duft, der erst in der Nähe beginnt.
+      </p>
+
+      <p class="description">
+        Ruhig aus der Distanz. Kultiviert im Gespräch. Mediterrane Frische,
+        trockene Hölzer und eine kaum greifbare Wärme, die sich erst auf der
+        Haut offenbart.
+      </p>
+
+      <div class="button-wrap">
+        <a href="#" class="try-button" aria-label="Spirit of the Ocean jetzt probieren">
+          Jetzt probieren
+        </a>
+      </div>
+
+      <div class="quiet-line"></div>
+      <p class="closing">Herren Edition</p>
+    </div>
+  </main>
+</body>
+</html>
