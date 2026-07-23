@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#050505">
+
+  <meta
+    name="description"
+    content="Spirit of the Ocean – ein mediterraner Duft, der erst in der Nähe beginnt."
+  >
+
+  <title>Spirit of the Ocean – Herren Edition</title>
+
+  <style>
+    /* ==================================
+       GRUNDEINSTELLUNGEN
+    ================================== */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      min-height: 100%;
+      background: #050505;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100%;
+      background: #050505;
+      color: #f2efe8;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ==================================
+       HAUPTBEREICH MIT HINTERGRUNDBILD
+    ================================== */
+
+    .page {
+      position: relative;
+
+      min-height: 100vh;
+      min-height: 100svh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding:
+        max(48px, env(safe-area-inset-top))
+        max(24px, env(safe-area-inset-right))
+        max(48px, env(safe-area-inset-bottom))
+        max(24px, env(safe-area-inset-left));
+
+      overflow: hidden;
+
+      background-image:
+        radial-gradient(
+          circle at center,
+          rgba(0, 0, 0, 0.06) 0%,
+          rgba(0, 0, 0, 0.20) 40%,
+          rgba(0, 0, 0, 0.52) 100%
+        ),
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.16) 0%,
+          rgba(0, 0, 0, 0.30) 100%
+        ),
+        url("marketingbackground.png");
+
+      background-size:
+        cover,
+        cover,
+        cover;
+
+      background-position:
+        center center,
+        center center,
+        center center;
+
+      background-repeat: no-repeat;
+    }
+
+    /* Sehr leichte Abdunklung für bessere Lesbarkeit */
+
+    .page::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.08) 0%,
+          rgba(0, 0, 0, 0) 35%,
+          rgba(0, 0, 0, 0.18) 100%
+        );
+
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ==================================
+       ZURÜCK-LINK
+    ================================== */
+
+    .back-link {
+      position: absolute;
+      top: max(28px, env(safe-area-inset-top));
+      left: max(28px, env(safe-area-inset-left));
+
+      z-index: 3;
+
+      color: rgba(242, 239, 232, 0.55);
+
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+
+      text-decoration: none;
+
+      transition:
+        color 250ms ease,
+        transform 250ms ease;
+    }
+
+    .back-link:hover {
+      color: #f2efe8;
+      transform: translateX(-2px);
+    }
+
+    .back-link:focus-visible {
+      outline: 1px solid #f2efe8;
+      outline-offset: 6px;
+    }
+
+    /* ==================================
+       INHALT
+    ================================== */
+
+    .content {
+      position: relative;
+      z-index: 2;
+
+      width: 100%;
+      max-width: 760px;
+
+      text-align: center;
+    }
+
+    .brand {
+      margin-bottom: 38px;
+
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+
+      color: rgba(242, 239, 232, 0.58);
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0 auto;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: clamp(46px, 7vw, 86px);
+      font-weight: 400;
+      line-height: 1.03;
+      letter-spacing: -0.035em;
+
+      color: #f2efe8;
+
+      text-shadow:
+        0 2px 24px rgba(0, 0, 0, 0.32);
+    }
+
+    .edition {
+      margin-top: 18px;
+
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+
+      color: rgba(242, 239, 232, 0.58);
+    }
+
+    .statement {
+      max-width: 540px;
+      margin: 46px auto 0;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: clamp(20px, 2.4vw, 28px);
+      font-weight: 400;
+      line-height: 1.5;
+
+      color: rgba(242, 239, 232, 0.92);
+
+      text-shadow:
+        0 2px 22px rgba(0, 0, 0, 0.40);
+    }
+
+    .description {
+      max-width: 500px;
+      margin: 22px auto 0;
+
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.8;
+
+      color: rgba(242, 239, 232, 0.66);
+
+      text-shadow:
+        0 2px 18px rgba(0, 0, 0, 0.45);
+    }
+
+    /* ==================================
+       BUTTON
+    ================================== */
+
+    .button-wrap {
+      margin-top: 50px;
+    }
+
+    .try-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-width: 220px;
+      min-height: 56px;
+
+      padding: 16px 36px;
+
+      border: 1px solid rgba(242, 239, 232, 0.92);
+      border-radius: 999px;
+
+      background: #f2efe8;
+      color: #090909;
+
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+
+      text-decoration: none;
+
+      box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.20);
+
+      transition:
+        background-color 350ms ease,
+        color 350ms ease,
+        border-color 350ms ease,
+        transform 350ms ease,
+        box-shadow 350ms ease;
+    }
+
+    .try-button:hover {
+      background: rgba(5, 5, 5, 0.62);
+      color: #f2efe8;
+
+      border-color: rgba(242, 239, 232, 0.72);
+
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 14px 45px rgba(0, 0, 0, 0.34);
+    }
+
+    .try-button:active {
+      transform: translateY(0);
+    }
+
+    .try-button:focus-visible {
+      outline: 2px solid #f2efe8;
+      outline-offset: 6px;
+    }
+
+    /* ==================================
+       KLEINE ABSCHLUSSZEILE
+    ================================== */
+
+    .quiet-line {
+      width: 34px;
+      height: 1px;
+
+      margin: 54px auto 0;
+
+      background: rgba(242, 239, 232, 0.26);
+    }
+
+    .closing {
+      margin-top: 20px;
+
+      font-size: 10px;
+      font-weight: 400;
+      line-height: 1.7;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+
+      color: rgba(242, 239, 232, 0.42);
+    }
+
+    /* ==================================
+       TABLET
+    ================================== */
+
+    @media (max-width: 1024px) {
+      .page {
+        background-position:
+          center center,
+          center center,
+          center center;
+      }
+
+      .content {
+        max-width: 680px;
+      }
+
+      h1 {
+        font-size: clamp(48px, 8vw, 74px);
+      }
+    }
+
+    /* ==================================
+       SMARTPHONE
+    ================================== */
+
+    @media (max-width: 768px) {
+      .page {
+        min-height: 100vh;
+        min-height: 100svh;
+
+        padding:
+          max(76px, env(safe-area-inset-top))
+          max(20px, env(safe-area-inset-right))
+          max(46px, env(safe-area-inset-bottom))
+          max(20px, env(safe-area-inset-left));
+
+        background-position:
+          center center,
+          center center,
+          center center;
+      }
+
+      .back-link {
+        top: max(22px, env(safe-area-inset-top));
+        left: max(20px, env(safe-area-inset-left));
+
+        font-size: 11px;
+      }
+
+      .brand {
+        margin-bottom: 30px;
+
+        font-size: 10px;
+        letter-spacing: 0.34em;
+      }
+
+      h1 {
+        font-size: clamp(42px, 12vw, 60px);
+        line-height: 1.04;
+      }
+
+      .edition {
+        margin-top: 16px;
+
+        font-size: 10px;
+        letter-spacing: 0.28em;
+      }
+
+      .statement {
+        margin-top: 38px;
+
+        font-size: 21px;
+        line-height: 1.48;
+      }
+
+      .description {
+        max-width: 410px;
+        margin-top: 20px;
+
+        font-size: 14px;
+        line-height: 1.75;
+      }
+
+      .button-wrap {
+        margin-top: 42px;
+      }
+
+      .try-button {
+        width: 100%;
+        max-width: 310px;
+
+        min-height: 56px;
+        padding: 16px 26px;
+      }
+
+      .quiet-line {
+        margin-top: 46px;
+      }
+    }
+
+    /* ==================================
+       KLEINE SMARTPHONES
+    ================================== */
+
+    @media (max-width: 420px) {
+      .page {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .statement {
+        font-size: 20px;
+      }
+
+      .description {
+        font-size: 13px;
+      }
+
+      .try-button {
+        max-width: 290px;
+      }
+    }
+
+    /* ==================================
+       BEWEGUNGEN REDUZIEREN
+    ================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <a href="index.html" class="back-link">
+      Zurück
+    </a>
+
+    <div class="content">
+
+      <div class="brand">
+        MH Fragrance
+      </div>
+
+      <h1>
+        Spirit of the Ocean
+      </h1>
+
+      <div class="edition">
+        Herren Edition
+      </div>
+
+      <p class="statement">
+        Ein mediterraner Duft, der erst in der Nähe beginnt.
+      </p>
+
+      <p class="description">
+        Ruhig aus der Distanz. Kultiviert im Gespräch.
+        Mediterrane Frische, trockene Hölzer und eine kaum greifbare Wärme,
+        die sich erst auf der Haut offenbart.
+      </p>
+
+      <div class="button-wrap">
+        <a
+          href="DEIN-SHOPIFY-LINK"
+          class="try-button"
+        >
+          Jetzt probieren
+        </a>
+      </div>
+
+      <div class="quiet-line"></div>
+
+      <p class="closing">
+        Herren Edition · Sichere Bestellung über Shopify
+      </p>
+
+    </div>
+
+  </main>
+
+</body>
+</html>
